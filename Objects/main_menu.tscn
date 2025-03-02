@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvrdo8dvyop73"]
 
 [ext_resource type="Texture2D" uid="uid://c7w2kb80b1fga" path="res://Sprites/pupventureblur.png" id="1_hg7i6"]
-[ext_resource type="Script" path="res://menu_script.gd" id="1_xh5xi"]
+[ext_resource type="Script" path="res://Scripts/menu_script.gd" id="1_xh5xi"]
 [ext_resource type="Texture2D" uid="uid://dmseniapecmii" path="res://Sprites/pupventure.png" id="2_mmqfk"]
 [ext_resource type="Texture2D" uid="uid://dc8o7qcuiffky" path="res://Sprites/StartButtonResized.png" id="4_g8jnc"]
 [ext_resource type="AudioStream" uid="uid://cx2vwavd7juvh" path="res://Sfx/chillmusic.mp3" id="5_8nv3l"]

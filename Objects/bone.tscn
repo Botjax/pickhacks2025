@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnlws8arn3jvk"]
 
-[ext_resource type="Script" path="res://Objects/Bone_Scriptt.gd" id="1_7bx2t"]
+[ext_resource type="Script" path="res://Scripts/Bone_Scriptt.gd" id="1_7bx2t"]
 [ext_resource type="Texture2D" uid="uid://dppodokj78w5t" path="res://Sprites/Bone.png" id="1_jf6yf"]
-[ext_resource type="Script" path="res://bone_script.gd" id="2_0w8l2"]
+[ext_resource type="Script" path="res://Scripts/bone_script.gd" id="2_0w8l2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kurko"]
 radius = 3.0

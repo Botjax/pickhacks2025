@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://83al2yo750j5"]
 
-[ext_resource type="Script" path="res://RingScript.gd" id="1_hifvc"]
+[ext_resource type="Script" path="res://Scripts/RingScript.gd" id="1_hifvc"]
 [ext_resource type="Texture2D" uid="uid://d0o0oktibv8fj" path="res://Sprites/hoops.png" id="2_jo2kg"]
 [ext_resource type="Texture2D" uid="uid://d0jla20cagokf" path="res://Sprites/hoops2.png" id="3_utf8r"]
 [ext_resource type="AudioStream" uid="uid://x7jk7rtk1it8" path="res://Sfx/Hoop.wav" id="4_4rfjf"]

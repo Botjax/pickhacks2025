@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c85cs0m6yuhvb"]
 
-[ext_resource type="Script" path="res://finish_line.gd" id="1_1iqqe"]
+[ext_resource type="Script" path="res://Scripts/finish_line.gd" id="1_1iqqe"]
 [ext_resource type="Texture2D" uid="uid://5m6dwh4lsswb" path="res://Sprites/finish_line.png" id="2_urvyq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih5kk"]

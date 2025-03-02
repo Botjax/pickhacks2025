@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_PlayButton_pressed():
-	# Change the scene to the game scene (update the path as needed)
+	# Change the scene to the game scene
 	get_tree().change_scene_to_file("res://Objects/Obstacle_Course.tscn")
 	queue_free()
