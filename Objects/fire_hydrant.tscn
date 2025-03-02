@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://br5sjfng8akxh"]
+
+[ext_resource type="Script" path="res://Scripts/FireHydrant.gd" id="1_2pbgy"]
+[ext_resource type="Texture2D" uid="uid://dbwajgg0py8q8" path="res://Sprites/FireHydrants.png" id="1_5glvj"]
+[ext_resource type="AudioStream" uid="uid://ho0mcatcdgxf" path="res://Sfx/BarkingEffect.mp3" id="3_lufbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ym75k"]
+radius = 8.0
+height = 712.0
+
+[node name="Fire Hydrant" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_2pbgy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_5glvj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, -340)
+shape = SubResource("CapsuleShape2D_ym75k")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("3_lufbx")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

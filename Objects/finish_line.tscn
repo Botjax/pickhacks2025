@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c85cs0m6yuhvb"]
+
+[ext_resource type="Script" path="res://finish_line.gd" id="1_1iqqe"]
+[ext_resource type="Texture2D" uid="uid://5m6dwh4lsswb" path="res://Sprites/finish_line.png" id="2_urvyq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ih5kk"]
+radius = 4.0
+height = 590.0
+
+[node name="finish_line" type="Node2D"]
+script = ExtResource("1_1iqqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_urvyq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, -278)
+shape = SubResource("CapsuleShape2D_ih5kk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

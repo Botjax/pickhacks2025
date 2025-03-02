@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://83al2yo750j5"]
+
+[ext_resource type="Script" path="res://RingScript.gd" id="1_hifvc"]
+[ext_resource type="Texture2D" uid="uid://d0o0oktibv8fj" path="res://Sprites/hoops.png" id="2_jo2kg"]
+[ext_resource type="Texture2D" uid="uid://d0jla20cagokf" path="res://Sprites/hoops2.png" id="3_utf8r"]
+[ext_resource type="AudioStream" uid="uid://x7jk7rtk1it8" path="res://Sfx/Hoop.wav" id="4_4rfjf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fjx2"]
+texture = ExtResource("2_jo2kg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8xcn"]
+texture = ExtResource("3_utf8r")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pwh4p"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_7fjx2")
+sources/1 = SubResource("TileSetAtlasSource_v8xcn")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ix3pj"]
+radius = 1.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knakx"]
+radius = 1.0
+height = 4.0
+
+[node name="Hoops" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-15, -15)
+script = ExtResource("1_hifvc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Area2D"]
+z_index = 3
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_pwh4p")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Area2D"]
+z_index = 5
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_pwh4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 17)
+shape = SubResource("CapsuleShape2D_ix3pj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("4_4rfjf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 15)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_knakx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_knakx")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

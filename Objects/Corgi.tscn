@@ -1,0 +1,280 @@
+[gd_scene load_steps=34 format=3 uid="uid://dtaru1f1bn1s4"]
+
+[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_rrk62"]
+[ext_resource type="Texture2D" uid="uid://cgoifqodl7p0i" path="res://Sprites/bronze_medal.png" id="2_12qqw"]
+[ext_resource type="Texture2D" uid="uid://b4lkdhiwna2hr" path="res://Sprites/corgi-sheet.png" id="2_bj621"]
+[ext_resource type="Texture2D" uid="uid://dhf1b4p78bu2w" path="res://Sprites/Corgi_Con_Frisbee.png" id="3_0262g"]
+[ext_resource type="Texture2D" uid="uid://wudj6y66byjp" path="res://Sprites/gold_medal.png" id="3_vn76b"]
+[ext_resource type="Script" path="res://Scripts/JumpBar.gd" id="4_uk4uu"]
+[ext_resource type="AudioStream" uid="uid://bimymlarb8qpm" path="res://Sfx/jump.wav" id="5_1iop3"]
+[ext_resource type="Texture2D" uid="uid://c3gjvlb1rhoh7" path="res://Sprites/silver_medal.png" id="6_il607"]
+[ext_resource type="AudioStream" uid="uid://cc3x4rlcvnlap" path="res://Sfx/Bone.wav" id="8_yuxox"]
+[ext_resource type="AudioStream" uid="uid://ce3l75i7vhkfq" path="res://Sfx/Frisbee.wav" id="9_2nthg"]
+[ext_resource type="Texture2D" uid="uid://ca7cf5l3tupg5" path="res://Sprites/bronze_winner.png" id="11_grj1t"]
+[ext_resource type="Texture2D" uid="uid://mhlnok8wbtt2" path="res://Sprites/LoserL.png" id="12_kw0es"]
+[ext_resource type="Texture2D" uid="uid://chphlws7anmx6" path="res://Sprites/silver_winner.png" id="12_ohphl"]
+[ext_resource type="Texture2D" uid="uid://ccamreqg1s8qn" path="res://Sprites/gold_winner.png" id="13_4q3vt"]
+
+[sub_resource type="GDScript" id="GDScript_syjrr"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohcvw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h78mk"]
+atlas = ExtResource("2_12qqw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3q8w"]
+atlas = ExtResource("3_vn76b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqkok"]
+atlas = ExtResource("2_bj621")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kbu4"]
+atlas = ExtResource("3_0262g")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue4tq"]
+atlas = ExtResource("2_bj621")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx63u"]
+atlas = ExtResource("2_bj621")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plkiv"]
+atlas = ExtResource("2_bj621")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mixnb"]
+atlas = ExtResource("2_bj621")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6r1x"]
+atlas = ExtResource("3_0262g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b4pk"]
+atlas = ExtResource("3_0262g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sx4n"]
+atlas = ExtResource("3_0262g")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lopk6"]
+atlas = ExtResource("3_0262g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d38bu"]
+atlas = ExtResource("6_il607")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5tww"]
+atlas = ExtResource("2_bj621")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beif1"]
+atlas = ExtResource("3_0262g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33p18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h78mk")
+}],
+"loop": true,
+"name": &"Bronze_Medal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3q8w")
+}],
+"loop": true,
+"name": &"Gold_Medal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqkok")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kbu4")
+}],
+"loop": true,
+"name": &"Jump_Frisbee",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue4tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx63u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plkiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mixnb")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6r1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b4pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sx4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lopk6")
+}],
+"loop": true,
+"name": &"Running_Frisbee",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d38bu")
+}],
+"loop": true,
+"name": &"Silver_Medal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5tww")
+}],
+"loop": true,
+"name": &"Stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beif1")
+}],
+"loop": true,
+"name": &"Stand_Frisbee",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_0qcab"]
+
+[node name="Corgi" type="Node2D"]
+script = SubResource("GDScript_syjrr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_rrk62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ohcvw")
+
+[node name="CorgiSprite" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(2, -6)
+sprite_frames = SubResource("SpriteFrames_33p18")
+animation = &"Running_Frisbee"
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="ResetTimer" type="Timer" parent="CharacterBody2D"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+offset = Vector2(0, -20)
+zoom = Vector2(2, 2)
+limit_bottom = 175
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("5_1iop3")
+script = SubResource("GDScript_0qcab")
+
+[node name="BoneSound" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("8_yuxox")
+script = SubResource("GDScript_0qcab")
+
+[node name="FrisbeeSound" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("9_2nthg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 287.0
+offset_bottom = 143.0
+
+[node name="Border" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1087.0
+offset_top = 31.0
+offset_right = 1113.0
+offset_bottom = 106.0
+color = Color(0, 0, 0, 1)
+
+[node name="Color" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1112.0
+offset_top = 105.0
+offset_right = 1136.0
+offset_bottom = 178.0
+rotation = 3.14159
+color = Color(0.334661, 0.460787, 0.928634, 1)
+script = ExtResource("4_uk4uu")
+
+[node name="BronzeWinner" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 375.0
+offset_right = 1399.0
+offset_bottom = 1024.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_grj1t")
+
+[node name="Loser" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 375.0
+offset_right = 1399.0
+offset_bottom = 1024.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_kw0es")
+
+[node name="SilverWinner" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 375.0
+offset_right = 1399.0
+offset_bottom = 1024.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_ohphl")
+
+[node name="GoldWinner" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 375.0
+offset_right = 1399.0
+offset_bottom = 1024.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_4q3vt")

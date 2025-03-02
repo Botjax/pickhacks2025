@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvrdo8dvyop73"]
+
+[ext_resource type="Texture2D" uid="uid://c7w2kb80b1fga" path="res://Sprites/pupventureblur.png" id="1_hg7i6"]
+[ext_resource type="Script" path="res://menu_script.gd" id="1_xh5xi"]
+[ext_resource type="Texture2D" uid="uid://dmseniapecmii" path="res://Sprites/pupventure.png" id="2_mmqfk"]
+[ext_resource type="Texture2D" uid="uid://dc8o7qcuiffky" path="res://Sprites/StartButtonResized.png" id="4_g8jnc"]
+[ext_resource type="AudioStream" uid="uid://cx2vwavd7juvh" path="res://Sfx/chillmusic.mp3" id="5_8nv3l"]
+
+[node name="MainMenu" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [91.0]
+
+[node name="Pupventureblur" type="Sprite2D" parent="."]
+position = Vector2(581, 230)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_hg7i6")
+
+[node name="Pupventure" type="Sprite2D" parent="."]
+position = Vector2(575, 300)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_mmqfk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xh5xi")
+
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 527.0
+offset_right = 655.0
+offset_bottom = 576.0
+texture_normal = ExtResource("4_g8jnc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control"]
+stream = ExtResource("5_8nv3l")
